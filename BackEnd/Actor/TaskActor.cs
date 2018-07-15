@@ -1,17 +1,15 @@
 ﻿namespace Backend.Actor
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
     using Akka.Actor;
     using Message;
 
-    internal class Starter : ReceiveActor, ILogReceive
+    internal class TaskActor : ReceiveActor, ILogReceive
     {
-        private IActorRef manager;
+        private readonly IActorRef manager;
         private NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
-        public Starter()
+        public TaskActor()
         {
             this.manager = Context.ActorOf(Props.Create<Manager>(), "Manager");
 

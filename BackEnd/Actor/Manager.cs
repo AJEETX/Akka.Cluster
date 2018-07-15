@@ -57,7 +57,7 @@
             if (this.pnrCounter == 0)
             {
                 Console.WriteLine($"Completed");
-                Program.Tasker.Tell(new Initiate());
+                Program.TaskActor.Tell(new Initiate());
             }
         }
     }

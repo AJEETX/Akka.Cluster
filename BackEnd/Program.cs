@@ -8,7 +8,7 @@
     internal class Program
     {
         public static ActorSystem ClusterSystem;
-        public static IActorRef Tasker;
+        public static IActorRef TaskActor;
 
         private static void Main(string[] args)
         {
@@ -43,7 +43,7 @@ akka
 }
 ");
             ClusterSystem = ActorSystem.Create("ClusterSystem", config);
-            Tasker = ClusterSystem.ActorOf(Props.Create<Starter>(), "tasker");
+            TaskActor = ClusterSystem.ActorOf(Props.Create<TaskActor>(), "tasker");
             ClusterSystem.WhenTerminated.Wait();
         }
     }
