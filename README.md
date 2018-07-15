@@ -1,8 +1,7 @@
-# Akka.Cluster
+# Akka.Cluster 
+![GitHub release](https://img.shields.io/github/release/ajeetx/akka.cluster.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=for-the-badge)
 
 ## Sample akka.net cluster project
-
-![GitHub release](https://img.shields.io/github/release/ajeetx/akka.cluster.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=for-the-badge)
 
 ![Travis](https://img.shields.io/travis/AJEETX/akka.cluster.svg) |![GitHub Release Date](https://img.shields.io/github/release-date/ajeetx/akka.cluster.svg)|
 | --- | --- |
@@ -11,5 +10,5 @@
 | ---          | ---        | ---      | ---        | 
 
 
-[![HitCount](http://hits.dwyl.io/ajeetx/command_design_pattern/projects/1.svg)](http://hits.dwyl.io/ajeetx/akka.cluster/projects/1) | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/akka.cluster.svg?style=plastic)|![license](https://img.shields.io/github/license/ajeetx/akka.cluster.svg?style=plastic)|
+[![HitCount](http://hits.dwyl.io/ajeetx/akka.cluster/projects/1.svg)](http://hits.dwyl.io/ajeetx/akka.cluster/projects/1) | ![GitHub contributors](https://img.shields.io/github/contributors/ajeetx/akka.cluster.svg?style=plastic)|![license](https://img.shields.io/github/license/ajeetx/akka.cluster.svg?style=plastic)|
  | --- | --- | ---|
