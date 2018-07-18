@@ -21,7 +21,6 @@
         {
             Console.WriteLine($" Processing pnr {pnr.Locator}");
             Thread.Sleep(1000);
-            this.Sender.Tell(new CompletedResponse());
         }
     }
 }

@@ -7,9 +7,6 @@
 
     internal class Program
     {
-        public static ActorSystem ClusterSystem;
-        public static IActorRef TaskActor;
-
         private static void Main(string[] args)
         {
             Console.Title = "BackEnd";
@@ -38,13 +35,13 @@ akka
     }
     cluster {
         seed-nodes = [""akka.tcp://ClusterSystem@localhost:8081""]
-        roles=[""tasker""]
+        roles=[""backend""]
         }
 }
 ");
-            ClusterSystem = ActorSystem.Create("ClusterSystem", config);
-            TaskActor = ClusterSystem.ActorOf(Props.Create<TaskActor>(), "tasker");
-            ClusterSystem.WhenTerminated.Wait();
+            var system = ActorSystem.Create("ClusterSystem", config);
+            var actor = system.ActorOf(Props.Create<TaskActor>(), "tasker");
+            Console.Read();
         }
     }
 }

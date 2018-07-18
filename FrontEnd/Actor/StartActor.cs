@@ -1,25 +1,39 @@
 ﻿using Akka.Actor;
+using Akka.Cluster;
 using Message;
+using System;
 
 namespace FrontEnd.Actor
 {
-    internal class StartActor : ReceiveActor, ILogReceive
+    internal class Director : ReceiveActor
     {
-        private NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        protected Cluster Cluster = Akka.Cluster.Cluster.Get(Context.System);
 
-        private IActorRef router;
-
-        public StartActor(IActorRef router)
+        protected override void PreStart()
         {
-            this.router = router;
-            Receive<Initiate>(i => Start(i));
+            Cluster.Subscribe(Self, new[] { typeof(ClusterEvent.MemberUp) });
         }
 
-        private void Start(Initiate initiate)
+        protected override void PostStop()
         {
-            this.logger.Info(NLog.LogLevel.Info);
+            Cluster.Unsubscribe(Self);
+        }
 
-            router.Tell(new Initiate());
+        public Director()
+        {
+            Receive<ClusterEvent.MemberJoined>(m =>
+            {
+                Console.WriteLine($"{m.Member.Address}");
+            });
+
+            Receive<ClusterEvent.MemberUp>(m =>
+            {
+                Console.WriteLine($"{m.Member.Address}");
+                if (m.Member.HasRole("backend"))
+                {
+                    Context.ActorSelection(m.Member.Address + "/user/tasker").Tell(new Initiate(), Self);
+                }
+            });
         }
     }
 }

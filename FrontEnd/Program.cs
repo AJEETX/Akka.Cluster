@@ -1,18 +1,13 @@
 ﻿using Akka.Actor;
 using Akka.Configuration;
-using Akka.Routing;
 using FrontEnd.Actor;
 using Message;
 using System;
-using System.Diagnostics;
 
 namespace Frontend
 {
     internal class Program
     {
-        public static ActorSystem ClusterSystem;
-        private static IActorRef StartActor;
-
         private static void Main(string[] args)
         {
             Console.Title = "FrontEnd";
@@ -23,18 +18,6 @@ akka
     loggers=[""Akka.Logger.NLog.NLogLogger, Akka.Logger.NLog""]
     actor {
 		provider=cluster
-        deployment {
-        /tasker {
-          router = round-robin-pool # routing strategy
-          nr-of-instances = 5 # max number of total routees
-          cluster {
-             enabled = on
-             allow-local-routees = off
-             use-role = tasker
-             max-nr-of-instances-per-node = 1
-          }
-        }
-      }
         debug
             {
               receive = on      # log any received message
@@ -51,19 +34,16 @@ akka
         hostname = ""localhost""
         }
     }
-
     cluster {
         seed-nodes = [""akka.tcp://ClusterSystem@localhost:8081""]
-        roles=[""tasker""]
+        roles=[""frontend""]
         }
 }
 ");
-            ClusterSystem = ActorSystem.Create("ClusterSystem", config);
-            var tasker = ClusterSystem.ActorOf(Props.Empty.WithRouter(FromConfig.Instance), "tasker");
-
-            StartActor = ClusterSystem.ActorOf(Props.Create(() => new StartActor(tasker)), "startactor");
-            StartActor.Tell(new Initiate());
-            ClusterSystem.WhenTerminated.Wait();
+            var system = ActorSystem.Create("ClusterSystem", config);
+            var director = system.ActorOf(Props.Create(() => new Director()), "director");
+            director.Tell(new Initiate());
+            Console.Read();
         }
     }
 }

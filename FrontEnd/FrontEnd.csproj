@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Actor\JobManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="C:\Users\atiwari\.nuget\packages\nlog.config\4.5.6\contentFiles\any\any\NLog.config" Link="NLog.config">
       <Private>True</Private>
       <NuGetPackageVersion>4.5.6</NuGetPackageVersion>
