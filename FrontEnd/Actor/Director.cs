@@ -11,7 +11,7 @@ namespace FrontEnd.Actor
 
         protected override void PreStart()
         {
-            Cluster.Subscribe(Self, new[] { typeof(ClusterEvent.MemberUp) });
+            Cluster.Subscribe(Self, new[] { typeof(ClusterEvent.MemberUp), typeof(ClusterEvent.MemberJoined) });
         }
 
         protected override void PostStop()

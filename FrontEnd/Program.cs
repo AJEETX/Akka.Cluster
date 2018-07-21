@@ -1,7 +1,6 @@
 ﻿using Akka.Actor;
 using Akka.Configuration;
 using FrontEnd.Actor;
-using Message;
 using System;
 
 namespace Frontend
@@ -42,7 +41,6 @@ akka
 ");
             var system = ActorSystem.Create("ClusterSystem", config);
             var director = system.ActorOf(Props.Create(() => new Director()), "director");
-            director.Tell(new Initiate());
             Console.Read();
         }
     }

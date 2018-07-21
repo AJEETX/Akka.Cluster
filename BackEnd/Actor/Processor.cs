@@ -1,8 +1,6 @@
 ﻿namespace Backend.Actor
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
     using System.Threading;
     using Akka.Actor;
     using Message;
