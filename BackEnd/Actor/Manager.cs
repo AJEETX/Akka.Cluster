@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using Akka.Actor;
     using Message;
+    using Shared;
 
     internal class Manager : ReceiveActor, ILogReceive
     {
@@ -14,6 +15,7 @@
         {
             this.Receive<List<Office>>(s => this.Process(s));
             this.Receive<OfficePnrList>(l => this.CallBack(l));
+            this.Receive<CompletedResponse>(r => this.Completed(r));
         }
 
         private void Process(List<Office> officeList)
@@ -48,6 +50,16 @@
             }
 
             this.officeCounter--;
+        }
+
+        private void Completed(CompletedResponse response)
+        {
+            this.pnrCounter--;
+            if (this.pnrCounter == 0)
+            {
+                Console.WriteLine($"Completed");
+                Program.Tasker.Tell(new Initiate());
+            }
         }
     }
 }

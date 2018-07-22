@@ -4,6 +4,7 @@
     using System.Threading;
     using Akka.Actor;
     using Message;
+    using Shared;
 
     internal class Processor : ReceiveActor
     {
@@ -19,6 +20,7 @@
         {
             Console.WriteLine($" Processing pnr {pnr.Locator}");
             Thread.Sleep(1000);
+            this.Sender.Tell(new CompletedResponse());
         }
     }
 }

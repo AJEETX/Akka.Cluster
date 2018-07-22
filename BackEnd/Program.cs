@@ -7,6 +7,8 @@
 
     internal class Program
     {
+        internal static IActorRef Tasker;
+
         private static void Main(string[] args)
         {
             Console.Title = "BackEnd";
@@ -40,7 +42,7 @@ akka
 }
 ");
             var system = ActorSystem.Create("ClusterSystem", config);
-            var actor = system.ActorOf(Props.Create<TaskActor>(), "tasker");
+            Tasker = system.ActorOf(Props.Create<TaskActor>(), "tasker");
             Console.Read();
         }
     }
