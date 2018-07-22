@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyName>ChildPerEntity</AssemblyName>
+    <AssemblyName>BackEnd</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,9 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Shared">
-      <HintPath>..\Shared\bin\Debug\netcoreapp2.0\Shared.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
-
 </Project>
