@@ -3,7 +3,7 @@
 
 ## Sample akka.net cluster project
 
-![Travis](https://img.shields.io/travis/AJEETX/akka.cluster.svg) |![GitHub Release Date](https://img.shields.io/github/release-date/ajeetx/akka.cluster.svg)|
+[![Build Status](https://travis-ci.org/AJEETX/Akka.Cluster.svg?branch=master)](https://travis-ci.org/AJEETX/Akka.Cluster) |![GitHub Release Date](https://img.shields.io/github/release-date/ajeetx/akka.cluster.svg)|
 | --- | --- |
 
 [![.Net Framework](https://img.shields.io/badge/DotNet-2.0-blue.svg?style=plastic)](https://www.microsoft.com/en-au/download/details.aspx?id=1639) | ![GitHub language count](https://img.shields.io/github/languages/count/ajeetx/akka.cluster.svg) | ![GitHub top language](https://img.shields.io/github/languages/top/ajeetx/akka.cluster.svg) |![GitHub repo size in bytes](https://img.shields.io/github/repo-size/ajeetx/akka.cluster.svg) 
