@@ -7,7 +7,7 @@ namespace FrontEnd.Actor
 {
     internal class Director : ReceiveActor
     {
-        protected Cluster Cluster = Akka.Cluster.Cluster.Get(Context.System);
+        protected Cluster Cluster = Cluster.Get(Context.System);
 
         protected override void PreStart()
         {
