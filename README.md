@@ -1,4 +1,4 @@
-# Akka.Cluster ![GitHub release](https://img.shields.io/github/release/ajeetx/akka.cluster.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=for-the-badge)
+# Akka.Cluster ![GitHub release](https://img.shields.io/github/release/ajeetx/akka.cluster.svg?style=for-the-badge) ![Maintenance](https://img.shields.io/maintenance/yes/2019.svg?style=for-the-badge)
 
 ## Sample akka.net cluster project
 
